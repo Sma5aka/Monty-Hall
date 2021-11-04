@@ -4,16 +4,16 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Monty-Hall's GAME</title>
-		<script src="Scripts/script.js"></script> <!-- ПЕРЕНЕСТИ В КОНЕЦ ФАЙЛА -->
+		
 		<link rel="stylesheet" href="Styles/styles.css">
 	</head>
 
-	<body>
+	<body onload="start()">
 		<h1 class="header">Choose the DOOR</h1>
 
 		<div class="game">
 
-			<div class="door" id="door1">
+			<div onclick="unhide()" class="door" id="door1">
 				<div class="df" id="d1f">HERE DOOR 1</div>
 				<div class="bf" id="d1b">HERE DOOR'S 1 BACK</div>
 			</div>
@@ -32,13 +32,13 @@
 				<h2 id="ch_m">Вы хотите изменить свой выбор?</h2>
 
 				<div class="buttons" class="to_hide">
-					<div id="yes">YES</div>
+					<div id="yes" onclick="clear()">YES</div>
 					
-					<div id="no">NO</div>
+					<div id="no" >NO</div>
 				</div>
 			</div>
 
 		</div>
-		
+		<script src="Scripts/script.js"></script> <!-- ПЕРЕНЕСТИ В КОНЕЦ ФАЙЛА -->
 	</body>
 </html>
