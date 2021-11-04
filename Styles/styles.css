@@ -1,0 +1,87 @@
+body {
+  font-family: 'Futura Md BT', sans-serif;
+  background-color: #b8ffe0;
+}
+/*div{
+	display: flex;
+}*/
+.header{
+	padding: 15px;
+	text-align: center;
+	font-size: 35px;
+}
+.game{
+	width: 80%;
+	height: 100%;
+	margin: 0 auto;
+	display: flex;
+    justify-content: space-evenly;
+    padding: 10px 0; 
+}
+.door{
+	height: 500px;
+	width: 250px;
+	position: relative;
+	perspective: 1500px;
+}
+#ch_m{
+	display: flex;
+	text-align: center;
+}
+.buttons{
+	width: 154px;
+	border: 2px solid;
+	text-align: center;
+	align-items: center;
+	flex-direction: row;
+}
+#yes{
+	color: white;
+	border: 2px solid whitesmoke;
+	display: flex;
+	height: 50px;
+	width: 150px;	
+	display: flex;
+	background-color: #00ffb7;
+	text-align: center;
+	align-items: center;
+}
+#no{
+	color: white;
+	border: 2px solid whitesmoke;
+	display: flex;
+	height: 50px;
+	width: 150px;
+	display: flex;
+	background-color: #ff7d9d;
+	text-align: center;
+	align-items: center;
+}
+
+.df, .bf{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 20px;
+	transition: 1s;
+	backface-visibility: hidden;
+}
+
+.df{
+	background-color: limegreen;
+}
+.bf{
+	background-color: darkred;
+	transform: rotateY(180deg);
+}
+
+.door:hover .df{transform: rotateY(180deg);}
+.door:hover .bf{transform: rotateY(360deg);}
+.to_hide {
+    visibility: hidden;
+}
