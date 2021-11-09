@@ -115,19 +115,20 @@ body {
 	backface-visibility: hidden;
 }
 
-.df{
+#d1f, #d2f, #d3f{
 	background-color: limegreen;
 	transform: rotateY(0deg);
 }
 
-.bf{
+#d1b, #d2b, #d3b{
 	background-color: darkred;
 	transform: rotateY(180deg);
 }
-/*
-.door:hover .df{transform: rotateY(180deg);}
+
+
+/*.door:hover .df{transform: rotateY(180deg);}
 .door:hover .bf{transform: rotateY(360deg);}
 */
-.to_hide {
+#to_hide {
     visibility: hidden;
 }

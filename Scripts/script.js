@@ -23,10 +23,22 @@ function start() {
     fill_cards();
 }
 
+function open_other() {
+
+}
+
 function unhide() {
-    let hidden = document.getElementsByClassName("to_hide");
-    hidden.style.visibility = "visible";
-    let nnn = document.getElementsByClassName("df");
-    nnn.style.transform = "rotateY(180deg)";
+    document.getElementById("to_hide").style.visibility = "visible";
+}
+
+function open_first(elem) {
+    let dvf = elem.id;
+    let chnDr = document.getElementById(dvf);
+    chnDr.style.backgroundColor = 'yellow';
+    //chnDr.style.transform = "rotateY(180deg)";
+    let dvb = dvf[0] + dvf[1] + 'b';
+    alert(variats[Number(dvf[1])-1]); //Массив перемешивается вместе с надписями на задней части двери, и по массиву можно находить рез-ты за дверью
+    //document.getElementById(ff).style.transform = "rotateY(360deg)";
+    unhide();
 }
 
