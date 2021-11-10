@@ -161,3 +161,15 @@ body {
 	width: 95%;
 	border-radius: 20px;
 }
+
+#stat1, #stat2, #stat3{
+	font-size: 25px;
+}
+#win1, #win2, #win3{
+	background-color: green;
+	height: 30px;
+	width: 50px;
+	color: white;
+	text-align: center;
+	align-items: center;
+}

@@ -2,6 +2,9 @@
 
 let variats = ['C.A.R', 'G.O.A.T','G.O.A.T'];
 let op_dr = [false, false, false];
+let count_with = 0;
+let count_without = 0;
+
 
 function shuffle() {
     variats.sort(function () {
@@ -69,19 +72,28 @@ function start() {
 
 function restart() {
     document.getElementById("reset").style.visibility = "hidden";
+
     document.getElementById("d1b").innerHTML = '';
     document.getElementById("d2b").innerHTML = '';
     document.getElementById("d3b").innerHTML = '';
+
     document.getElementById("d1f").style.backgroundColor = "limegreen";
     document.getElementById("d2f").style.backgroundColor = "limegreen";
     document.getElementById("d3f").style.backgroundColor = "limegreen";
+
+    document.getElementById("win1").innerHTML = `${count_with}`;
+    document.getElementById("win2").innerHTML = `${count_without}`;
+    document.getElementById("win3").innerHTML = `${count_without + count_with}`;
+
     for (let i = 0; i < 3; i++) {
         op_dr[i] = false;
     }
+
     unhide(2);
     op_all(0);
     shuffle();
-    fill_cards();
+    setTimeout(fill_cards, 1000);
+
     able = false;
     able_but = false;
 }
@@ -189,6 +201,7 @@ function open_second(elem) {
         let butt = elem.id;
         if (butt == "no") {
             if ((variats[Number(dc[1]) - 1]) == "C.A.R") {
+                count_without++;
                 op_all(1);
                 alert("YOU WIN!");
                 able_but = true;
@@ -211,6 +224,7 @@ function open_second(elem) {
                 }
             }
             if (variats[door] == "C.A.R") {
+                count_with++;
                 op_all(1);
                 alert("YOU WIN!");
                 able_but = true;
