@@ -14,14 +14,76 @@ function fill_cards() {
     let dr2 = document.getElementById('d2b');
     let dr3 = document.getElementById('d3b');
 
-    dr1.innerHTML = `${variats[0]}`;
+    function a() {
+        if (variats[0] == 'C.A.R') {
+            let div1 = document.createElement('img');
+            div1.className = "car";
+            div1.src = "Media/car2.jpg";
+            dr1.appendChild(div1);
+        } else if (variats[0] == 'G.O.A.T') {
+            let div1 = document.createElement('img');
+            div1.className = "pictr";
+            div1.src = "Media/pici.jpg";
+            dr1.appendChild(div1);
+        }
+    }
+    a();
+    function b () {
+        if (variats[1] == 'C.A.R') {
+            let div2 = document.createElement('img');
+            div2.className = "car";
+            div2.src = "Media/car2.jpg";
+            dr2.appendChild(div2);
+        } else if (variats[1] == 'G.O.A.T') {
+            let div2 = document.createElement('img');
+            div2.className = "pictr";
+            div2.src = "Media/pici.jpg";
+            dr2.appendChild(div2);
+        }
+    }
+    b();
+    function c() {
+        if (variats[2] == 'C.A.R') {
+            let div3 = document.createElement('img');
+            div3.className = "car";
+            div3.src = "Media/car2.jpg";
+            dr3.appendChild(div3);
+        } else if (variats[2] == 'G.O.A.T') {
+            let div3 = document.createElement('img');
+            div3.className = "pictr";
+            div3.src = "Media/pici.jpg";
+            dr3.appendChild(div3);
+        }
+    }
+    c();
+
+/*    dr1.innerHTML = `${variats[0]}`;
     dr2.innerHTML = `${variats[1]}`;
-    dr3.innerHTML = `${variats[2]}`;
+    dr3.innerHTML = `${variats[2]}`;*/
 }
 
 function start() {
     shuffle();
     fill_cards();
+}
+
+function restart() {
+    document.getElementById("reset").style.visibility = "hidden";
+    document.getElementById("d1b").innerHTML = '';
+    document.getElementById("d2b").innerHTML = '';
+    document.getElementById("d3b").innerHTML = '';
+    document.getElementById("d1f").style.backgroundColor = "limegreen";
+    document.getElementById("d2f").style.backgroundColor = "limegreen";
+    document.getElementById("d3f").style.backgroundColor = "limegreen";
+    for (let i = 0; i < 3; i++) {
+        op_dr[i] = false;
+    }
+    unhide(2);
+    op_all(0);
+    shuffle();
+    fill_cards();
+    able = false;
+    able_but = false;
 }
 
 function unhide(vr) {
@@ -40,7 +102,7 @@ function open_first(elem) {
         let chnDr = document.getElementById(dvf);
         chnDr.style.backgroundColor = 'yellow';
 
-        dc = dvf; //ID ÂÛÁÐÀÍÍÎÉ ÄÂÅÐÈ ÁÅÇ ÓÊÀÇÀÍÈß ÑÒÎÐÎÍÛ
+        dc = dvf;
 
         if (dvf[1] == 1) {
             if (variats[1] == 'G.O.A.T') {
@@ -96,6 +158,7 @@ function open_first(elem) {
             }
             let other1 = 'd' + hr + 'f';
             let other2 = 'd' + hr + 'b';*/
+
         /*    document.getElementById(other1).style.transform = "rotateY(180deg)";
             document.getElementById(other2).style.transform = "rotateY(360deg)";*/
 
@@ -125,28 +188,43 @@ function open_second(elem) {
     if (!able_but) {
         let butt = elem.id;
         if (butt == "no") {
-            if ((variats[Number(dc[1])-1]) == "C.A.R") {
+            if ((variats[Number(dc[1]) - 1]) == "C.A.R") {
                 op_all(1);
                 alert("YOU WIN!");
-            } else if ((variats[Number(dc[1])-1]) == "G.O.A.T") {
+                able_but = true;
+                unhide(2);
+                document.getElementById("reset").style.visibility = "visible";
+                return;
+            } else if ((variats[Number(dc[1]) - 1]) == "G.O.A.T") {
                 op_all(1);
                 alert("YOU LOSE!");
+                able_but = true;
+                unhide(2);
+                document.getElementById("reset").style.visibility = "visible";
+                return;
             }
         } else if (butt == "yes") {
-            for (let i = 1; i <= 3; i++) {
-                if (op_dr[i-1] == false) {
-                    document.getElementById('d' + i + 'f').style.transform = "rotateY(180deg)";
-                    document.getElementById('d' + i + 'b').style.transform = "rotateY(360deg)";
-                    if (variats[i-1] == "C.A.R") {
-                        op_all(1);
-                        alert("YOU WIN!");
-                    } else if (variats[i-1] == "G.O.A.T") {
-                        op_all(1);
-                        alert("YOU LOSE!");
-                    }
+            let door;
+            for (let i = 0; i < 3; i++) {
+                if (op_dr[i] == false) {
+                    door = i;
                 }
+            }
+            if (variats[door] == "C.A.R") {
+                op_all(1);
+                alert("YOU WIN!");
+                able_but = true;
+                unhide(2);
+                document.getElementById("reset").style.visibility = "visible";
+                return;
+            } else if (variats[door] == "G.O.A.T") {
+                op_all(1);
+                alert("YOU LOSE!");
+                able_but = true;
+                unhide(2);
+                document.getElementById("reset").style.visibility = "visible";
+                return;
             }
         }
     }
-    able_but = true;
 }

@@ -38,6 +38,23 @@ body {
 	flex-direction: row;
 }
 
+#reset{
+	color: white;
+	cursor: pointer;
+	border: 2px solid whitesmoke;
+	display: block;
+	height: 50px;
+	width: 150px;	
+	display: flex;
+	background-color: #968ad1;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+	visibility: hidden;
+}
+
 #yes{
 	color: white;
 	cursor: pointer;
@@ -54,19 +71,19 @@ body {
 	transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
 }
 
-#yes:hover, #no:hover{
+#yes:hover, #no:hover, #reset:hover{
 	color: #000 !important;
 	background-color: transparent;
 	text-shadow: none;
 }
 
-#yes:hover:before, #no:hover:before {
+#yes:hover:before, #no:hover:before, #reset:hover:before{
 	bottom: 0%;
 	top: auto;
 	height: 100%;
 }
 
-#yes:before, #no:before {
+#yes:before, #no:before, #reset:before {
 	display: block;
 	position: absolute;
 	left: 0px;
@@ -76,7 +93,6 @@ body {
 	z-index: -1;
 	content: '';
 	color: #000 !important;
-
 	transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
 }
 #no:before {
@@ -84,6 +100,9 @@ body {
 }
 #yes:before{
 	background: #15ff00;
+}
+#reset:before{
+	background: #8f8f8f;
 }
 #no{
 	color: white;
@@ -118,17 +137,27 @@ body {
 #d1f, #d2f, #d3f{
 	background-color: limegreen;
 	transform: rotateY(0deg);
+	font-size: 50px;
 }
 
 #d1b, #d2b, #d3b{
+	background-image: none;
 	background-color: darkred;
 	transform: rotateY(180deg);
 }
 
-
-/*.door:hover .df{transform: rotateY(180deg);}
-.door:hover .bf{transform: rotateY(360deg);}
-*/
 #to_hide {
     visibility: hidden;
+}
+
+.car{
+	height: 95%;
+	width: 95%;
+	border-radius: 20px;
+}
+
+.pictr{
+	height: 95%;
+	width: 95%;
+	border-radius: 20px;
 }
